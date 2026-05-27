@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تطوير كتاب تعليم النحو في باب الحروف والإعراب - الباب الأول</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Amiri+Quran&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #B8860B;
+    --gold-light: #F5E6B0;
+    --gold-dark: #7B5A00;
+    --green-dark: #1B4332;
+    --green-mid: #2D6A4F;
+    --green-light: #D8F3DC;
+    --cream: #FDF8EE;
+    --cream-dark: #F0E8D0;
+    --text-main: #1a1208;
+    --text-muted: #5c4a2a;
+    --border: #c9a84c;
+    --red-accent: #8B0000;
+    --blue-accent: #0B3D6B;
+    --purple-accent: #4B0082;
+    --teal-accent: #005F73;
+    --shadow: rgba(184,134,11,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    background: var(--cream);
+    color: var(--text-main);
+    line-height: 1.9;
+    font-size: 18px;
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* ============ PRINT BUTTON ============ */
+  .print-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9999;
+    background: var(--green-dark);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px; height: 56px;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .print-btn:hover { background: var(--gold-dark); }
+
+  /* ============ COVER PAGE ============ */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--green-dark) 0%, #0a2318 50%, var(--green-mid) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(184,134,11,0.4);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    inset: 24px;
+    border: 1px solid rgba(184,134,11,0.2);
+    pointer-events: none;
+  }
+  .cover-ornament {
+    font-size: 36px;
+    color: var(--gold);
+    letter-spacing: 12px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+  }
+  .cover-univ {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .cover-faculty {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+  .cover-divider {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 20px auto;
+  }
+  .cover-title {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.6;
+    margin: 20px 0;
+    max-width: 700px;
+  }
+  .cover-subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+  .cover-author-box {
+    background: rgba(184,134,11,0.15);
+    border: 1px solid rgba(184,134,11,0.4);
+    border-radius: 4px;
+    padding: 24px 48px;
+    margin-top: 30px;
+  }
+  .cover-author-label {
+    color: var(--gold);
+    font-size: 13px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .cover-author {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .cover-year {
+    color: var(--gold);
+    font-size: 16px;
+    margin-top: 40px;
+  }
+  .cover-bismillah {
+    font-family: 'Amiri Quran', 'Amiri', serif;
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(184,134,11,0.5);
+  }
+
+  /* ============ MAIN CONTAINER ============ */
+  .main-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
+  /* ============ MUQODDIMAH ============ */
+  .page-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title-ar {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green-dark);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .section-title-id {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: Georgia, serif;
+  }
+  .title-underline {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 40px;
+  }
+
+  .prose { margin-bottom: 20px; }
+  .prose p { margin-bottom: 16px; text-align: justify; }
+
+  .basmalah {
+    text-align: center;
+    font-family: 'Amiri Quran', 'Amiri', serif;
+    font-size: 26px;
+    color: var(--green-dark);
+    margin: 30px 0;
+  }
+
+  /* ============ BAB HEADERS ============ */
+  .bab-header {
+    padding: 50px 0 30px;
+    text-align: center;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .bab-number {
+    display: inline-block;
+    background: var(--green-dark);
+    color: var(--gold-light);
+    font-size: 13px;
+    padding: 6px 20px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+  .bab-title {
+    font-family: 'Amiri', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 8px;
+  }
+  .bab-subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-family: Georgia, serif;
+    margin-bottom: 20px;
+  }
+  .bab-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+  .bab-intro-text {
+    max-width: 600px;
+    margin: 20px auto 0;
+    font-size: 16px;
+    color: var(--text-muted);
+    text-align: justify;
+  }
+
+  /* ============ WIHDA (UNIT) ============ */
+  .wihda {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  .wihda-header {
+    padding: 28px 36px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .wihda-header.bab1-color { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%); }
+  .wihda-header.bab1-w2 { background: linear-gradient(135deg, #0B3D6B 0%, #1565C0 100%); }
+  .wihda-header.bab1-w3 { background: linear-gradient(135deg, #4A0E6B 0%, #7B1FA2 100%); }
+  .wihda-header.bab1-w4 { background: linear-gradient(135deg, #8B0000 0%, #C62828 100%); }
+  .wihda-header.bab1-w5 { background: linear-gradient(135deg, #005F73 0%, #0A7891 100%); }
+
+  .wihda-num {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+  }
+  .wihda-title {
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .wihda-subtitle {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    font-family: Georgia, serif;
+  }
+
+  .wihda-body { padding: 36px; }
+
+  /* ============ SUBSECTIONS ============ */
+  .sub-section {
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .sub-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .sub-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .sub-num {
+    background: var(--gold);
+    color: var(--green-dark);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .sub-label {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green-dark);
+  }
+  .sub-label-id {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: Georgia, serif;
+  }
+
+  /* ============ AHDAF (GOALS) ============ */
+  .goals-box {
+    background: var(--green-light);
+    border: 1px solid #95D5B2;
+    border-right: 4px solid var(--green-mid);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .goals-box ol {
+    padding-right: 28px;
+    margin: 0;
+  }
+  .goals-box li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: var(--green-dark);
+  }
+
+  /* ============ TAMHID QUOTE ============ */
+  .kitab-quote {
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    position: relative;
+  }
+  .kitab-quote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    font-size: 60px;
+    color: var(--gold);
+    font-family: Georgia, serif;
+    line-height: 1;
+    opacity: 0.4;
+  }
+  .kitab-quote p {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    line-height: 2;
+  }
+  .kitab-source {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: Georgia, serif;
+    text-align: left;
+  }
+
+  /* ============ MAFHUM BOX ============ */
+  .mafhum-box {
+    background: linear-gradient(135deg, #FDF8EE 0%, #F5E6B0 100%);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 16px 0;
+  }
+  .mafhum-box p { margin-bottom: 12px; }
+  .mafhum-box p:last-child { margin-bottom: 0; }
+
+  /* ============ HARF CARDS ============ */
+  .harf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .harf-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .harf-card-header {
+    background: var(--green-dark);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .harf-symbol {
+    font-family: 'Amiri', serif;
+    font-size: 30px;
+    color: var(--gold);
+    min-width: 40px;
+    text-align: center;
+  }
+  .harf-name {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .harf-name-id {
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    font-family: Georgia, serif;
+  }
+  .harf-card-body { padding: 16px 18px; }
+  .harf-makna {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-family: Georgia, serif;
+  }
+  .harf-makna strong { color: var(--green-dark); }
+  .harf-example {
+    font-family: 'Amiri', serif;
+    font-size: 17px;
+    color: var(--text-main);
+    line-height: 2;
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 10px;
+  }
+  .harf-example .footnote-mark {
+    font-size: 12px;
+    color: var(--gold-dark);
+    vertical-align: super;
+  }
+
+  /* ============ AMTSILAH ============ */
+  .amtsilah-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+  }
+  .amtsilah-list li {
+    background: var(--cream-dark);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--gold);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    font-family: 'Amiri', serif;
+    font-size: 19px;
+    line-height: 2;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .amtsilah-list li .num {
+    background: var(--gold);
+    color: var(--green-dark);
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .amtsilah-list li .text { flex: 1; }
+  .amtsilah-list li .trans {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-family: Georgia, serif;
+    display: block;
+    margin-top: 4px;
+  }
+
+  .harf-highlight {
+    color: var(--red-accent);
+    font-weight: 700;
+  }
+
+  /* ============ TABLE ============ */
+  .jadwal-wrapper {
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+  .jadwal {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+  }
+  .jadwal th {
+    background: var(--green-dark);
+    color: var(--gold-light);
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid #0a2318;
+  }
+  .jadwal td {
+    padding: 11px 16px;
+    border: 1px solid var(--border);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.8;
+  }
+  .jadwal tr:nth-child(even) { background: var(--cream-dark); }
+  .jadwal tr:hover { background: var(--green-light); }
+  .jadwal .harf-col { font-size: 22px; color: var(--red-accent); font-weight: 700; }
+  .jadwal .irab-col { font-size: 14px; color: var(--blue-accent); }
+  .jadwal .makna-col { font-size: 15px; }
+
+  /* ============ TAMRIN (EXERCISES) ============ */
+  .tamrin-section {
+    background: linear-gradient(135deg, #0B3D6B 0%, #0a2d55 100%);
+    border-radius: 4px;
+    padding: 30px;
+    margin-top: 10px;
+  }
+  .tamrin-title {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .tamrin-subtitle {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 24px;
+    font-family: Georgia, serif;
+  }
+
+  .tamrin-type {
+    font-family: 'Amiri', serif;
+    font-size: 18px;
+    color: var(--gold);
+    margin: 20px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(184,134,11,0.4);
+  }
+  .tamrin-type-id {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-family: Georgia, serif;
+  }
+
+  .soal {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(184,134,11,0.2);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    font-family: 'Amiri', serif;
+    font-size: 17px;
+    color: #fff;
+    line-height: 2;
+  }
+  .soal-num {
+    color: var(--gold);
+    font-weight: 700;
+    margin-left: 8px;
+  }
+  .soal-choices {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .soal-choices li {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,134,11,0.15);
+    border-radius: 3px;
+    padding: 8px 14px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    cursor: pointer;
+    transition: background 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .soal-choices li:hover { background: rgba(184,134,11,0.15); }
+  .soal-choices li .opt-label {
+    background: var(--gold);
+    color: var(--green-dark);
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .soal-fill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .fill-blank {
+    display: inline-block;
+    border-bottom: 2px solid var(--gold);
+    width: 120px;
+    height: 24px;
+    margin: 0 4px;
+  }
+
+  /* ============ FOOTNOTES ============ */
+  .footnotes {
+    background: var(--cream-dark);
+    border-top: 2px solid var(--border);
+    padding: 20px 36px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .footnotes-title {
+    font-family: 'Amiri', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 12px;
+  }
+  .fn-item {
+    margin-bottom: 8px;
+    line-height: 1.6;
+    font-family: 'Amiri', serif;
+    font-size: 14px;
+  }
+  .fn-num { color: var(--gold-dark); font-weight: 700; }
+
+  /* ============ MURAJAAH BOX ============ */
+  .murajaah-box {
+    background: linear-gradient(135deg, var(--green-light) 0%, #B7E4C7 100%);
+    border: 1px solid #95D5B2;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .murajaah-title {
+    font-family: 'Amiri', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 12px;
+  }
+  .murajaah-box ul {
+    padding-right: 24px;
+    margin: 0;
+  }
+  .murajaah-box li {
+    margin-bottom: 8px;
+    color: var(--green-dark);
+    font-size: 16px;
+  }
+
+  /* ============ MARJA' (REFERENCES) ============ */
+  .maraji-section {
+    padding: 60px 0;
+    text-align: center;
+  }
+  .ref-list {
+    list-style: none;
+    padding: 0;
+    text-align: right;
+  }
+  .ref-list li {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  .ref-list .ref-main { font-family: 'Amiri', serif; font-size: 17px; margin-bottom: 4px; }
+  .ref-list .ref-detail { color: var(--text-muted); font-size: 13px; font-family: Georgia, serif; }
+
+  /* ============ FOOTER ============ */
+  .page-footer {
+    background: var(--green-dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    font-family: Georgia, serif;
+    margin-top: 60px;
+  }
+  .page-footer strong { color: var(--gold); }
+
+  /* ============ SEPARATOR ============ */
+  .ornament-sep {
+    text-align: center;
+    color: var(--gold);
+    font-size: 22px;
+    letter-spacing: 8px;
+    margin: 30px 0;
+    opacity: 0.6;
+  }
+
+  .note-box {
+    background: #FFF8E1;
+    border: 1px solid #FFD54F;
+    border-right: 4px solid #F9A825;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 15px;
+    color: #5D4037;
+  }
+  .note-box strong { color: #E65100; }
+
+  /* ============ PRINT STYLES ============ */
+  @media print {
+    .print-btn { display: none; }
+    .cover { min-height: auto; padding: 40px; page-break-after: always; }
+    .wihda { page-break-inside: avoid; box-shadow: none; }
+    .bab-header { page-break-before: always; }
+    body { font-size: 14px; }
+    .cover-title { font-size: 22px; }
+    .bab-title { font-size: 26px; }
+    .tamrin-section { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .wihda-body { padding: 20px; }
+    .harf-grid { grid-template-columns: 1fr; }
+    .soal-choices { grid-template-columns: 1fr; }
+    .cover-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()" title="طباعة">🖨️</button>
+
+<!-- =============== HALAMAN COVER =============== -->
+<div class="cover">
+  <div class="cover-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <div class="cover-ornament">❧ ✦ ❧</div>
+  <div class="cover-univ">جامعة مالانج الحكومية</div>
+  <div class="cover-faculty">كلية الآداب — قسم تعليم اللغة العربية</div>
+  <div class="cover-divider"></div>
+  <div class="cover-title">
+    تطوير كتاب تعليم النحو<br>في باب الحروف والإعراب<br>
+    <span style="font-size:20px; color:rgba(255,255,255,0.7);">لتنمية فهم المقروء لكتاب كاشفة السجا</span>
+  </div>
+  <div class="cover-divider"></div>
+  <div class="cover-subtitle">كتاب تعليمي — الباب الأول: حروف الجر</div>
+  <div class="cover-author-box">
+    <div class="cover-author-label">إعداد</div>
+    <div class="cover-author">محمد رفلي</div>
+    <div style="color:rgba(255,255,255,0.5); font-size:13px; margin-top:6px; font-family:Georgia,serif;">مرحلة الماجستير</div>
+  </div>
+  <div class="cover-year">١٤٤٧ هـ / ٢٠٢٦ م</div>
+</div>
+
+<!-- =============== MUQODDIMAH =============== -->
+<div class="main-container">
+  <div class="page-section">
+    <div class="section-title-ar">المقدِّمة</div>
+    <div class="title-underline"></div>
+
+    <div class="basmalah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+    <div class="prose">
+      <p>الحمدُ للهِ الذي علَّمَ بالقلمِ، علَّمَ الإنسانَ ما لم يعلمْ. والصلاةُ والسلامُ على سيِّدنا محمدٍ خيرِ مَن نطقَ بالضادِ وأفصحِ العربِ لساناً وبياناً، وعلى آلهِ وصحبهِ أجمعين.</p>
+
+      <p>أمَّا بعدُ؛ فإنَّ علمَ النحوِ من أشرفِ العلومِ وأنفعِها لطالبِ العلمِ الشرعيِّ، إذ هو مِفتاحُ فهمِ النصوصِ العربيةِ الأصيلةِ، ولا سيَّما كتبُ التراثِ الإسلاميِّ التي تُعدُّ ذخيرةً علميةً لا تُقدَّر. ومن أجلِّ هذه الكتبِ وأنفعِها للمبتدئين: كتابُ <strong>«كاشفةِ السَّجا في شرحِ سفينةِ النجا»</strong> للشيخِ الإمامِ محمدٍ نواوي الجاوي البنتَني رحمهُ الله، وهو شرحٌ مُحكَمٌ على متنِ سفينةِ النجا في أحكامِ الطهارةِ والصلاةِ والصيامِ والزكاةِ والحجِّ.</p>
+
+      <p>ولمَّا كانَ فهمُ هذا الكتابِ الجليلِ يتوقَّفُ على قدرٍ وافرٍ من معرفةِ أحكامِ الحروفِ وما تحدِثُهُ من تغيُّراتٍ إعرابيةٍ في الجملةِ العربيةِ، رأيتُ من الضرورةِ بمكانٍ أن أُعِدَّ هذا الكتابَ التعليميَّ الذي يتناولُ باباً من أهمِّ أبوابِ النحوِ، وهو: <strong>بابُ الحروفِ والإعرابِ</strong>، مُوثِّقاً شواهدَهُ من نصوصِ كاشفةِ السجا مباشرةً، حتى يرى الطالبُ الكريمُ تطبيقَ القاعدةِ في سياقِها الفقهيِّ الطبيعيِّ.</p>
+
+      <p>وقد جاءَ هذا الكتابُ مقسَّماً على عشرةِ أبوابٍ، تشملُ: حروفَ الجرِّ، وحروفَ العطفِ، وحروفَ الاستفهامِ، وإنَّ وأخواتِها، وكانَ وأخواتِها، وأدواتِ الشرطِ، وحروفَ النفيِ والنهيِ، وحروفَ التوكيدِ والتنبيهِ، وحرفَ التعريفِ، وحروفَ الربطِ والتعليلِ. وقد حرصتُ في كلِّ وحدةٍ على تنظيمٍ واضحٍ يشملُ: الأهدافَ، والتمهيدَ، والمفهومَ، والأنواعَ، والأمثلةَ من كاشفةِ السجا، وجدولَ التوضيحِ، والتدريباتِ المتنوِّعةِ.</p>
+
+      <p>وأسألُ اللهَ التوفيقَ والسدادَ، وأن يجعلَ هذا العملَ خالصاً لوجهِهِ الكريمِ، نافعاً لطلابِ العلمِ في حاضرِنا ومستقبلِنا. وصلَّى اللهُ على سيِّدنا محمدٍ وعلى آلهِ وصحبهِ وسلَّم.</p>
+
+      <p style="text-align:right; color:var(--text-muted); font-family:'Amiri',serif; font-size:16px; margin-top:30px;">
+        المؤلف<br>
+        محمد رفلي<br>
+        ١٤٤٧ هـ / ٢٠٢٦ م
+      </p>
+    </div>
+  </div>
+
+  <!-- =============== TAMHID =============== -->
+  <div class="page-section">
+    <div class="section-title-ar">التمهيد</div>
+    <div class="title-underline"></div>
+
+    <div class="prose">
+      <p>إنَّ علمَ النحوِ والصرفِ بمثابةِ الأساسِ المتينِ الذي يقومُ عليه فهمُ النصوصِ العربيةِ الفصيحةِ. وقد قالَ الإمامُ الشافعيُّ رحمهُ اللهُ: «مَن تبحَّرَ في النحوِ اهتدى إلى كلِّ العلومِ».</p>
+
+      <div class="kitab-quote">
+        <p>قالَ الشيخُ نواوي البنتَني رحمهُ اللهُ في مطلعِ كتابهِ كاشفةِ السجا:</p>
+        <p>«الحمدُ للهِ الذي شرَّفَ عبادَهُ بالعلمِ والعملِ، وأرشدَ أولياءَهُ إلى سُبُلِ الرَّشدِ والكمالِ، وخصَّ الموفَّقينَ من عبادِهِ بالفهمِ والاستيعابِ لأحكامِ الشريعةِ الإسلامية.»</p>
+        <div class="kitab-source">(بأسلوب كاشفة السجا) — مقدمة الكتاب</div>
+      </div>
+
+      <p><strong>أهمية الحروف في النحو العربي:</strong></p>
+      <p>تُعدُّ الحروفُ في اللغةِ العربيةِ من أدقِّ أبوابِ النحوِ وأكثرِها تأثيراً في المعنى، فالحرفُ الواحدُ قد يُغيِّرُ دلالةَ الجملةِ كلِّيًّا. فحرفُ الجرِّ «مِن» يُفيدُ ابتداءَ الغايةِ، و«إلى» يُفيدُ انتهاءَها، و«في» يُفيدُ الظرفيةَ. وهذه الفروقُ الدقيقةُ لا غِنى عنها لفهمِ نصوصِ كاشفةِ السجا الفقهيةِ التي تعتمدُ على التدقيقِ في المعاني اعتماداً كبيراً.</p>
+
+      <p><strong>منهج هذا الكتاب:</strong></p>
+      <p>يسيرُ هذا الكتابُ على منهجٍ استقرائيٍّ، يبدأُ بإيرادِ النصِّ من كاشفةِ السجا، ثمَّ يُوضِّحُ الحرفَ الواردَ فيهِ، ثمَّ يُبيِّنُ حكمَهُ النحويَّ وإعرابَهُ، وأخيراً يُدرِّبُ الطالبَ على التطبيقِ من خلالِ تمريناتٍ متدرِّجةٍ. وبهذا يتحقَّقُ التكاملُ بينَ المعرفةِ النظريةِ والتطبيقِ العمليِّ في سياقِ المتنِ المدروسِ.</p>
+    </div>
+
+    <div class="murajaah-box">
+      <div class="murajaah-title">خلاصة التمهيد</div>
+      <ul>
+        <li>علم النحو أساس لفهم كتب التراث الإسلامي كـ«كاشفة السجا»</li>
+        <li>الحروف تُحدث تغييرات دلالية وإعرابية جوهرية في الجملة</li>
+        <li>هذا الكتاب يربط بين القاعدة النحوية والنص الفقهي مباشرة</li>
+        <li>المنهج: استقراء من النص ← بيان الحكم ← التطبيق والتدريب</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- =============== BAB 1: HURUF JAR =============== -->
+  <div class="bab-header">
+    <div class="bab-number">الباب الأول</div>
+    <div class="bab-icon">⬡</div>
+    <div class="bab-title">حروف الجرِّ</div>
+    <div class="ornament-sep">❦ ✦ ❦</div>
+    <div class="bab-intro-text">
+      حروفُ الجرِّ هي الحروفُ التي تدخلُ على الاسمِ فتجرُّهُ، أي تجعلُهُ مجروراً مكسورَ الآخرِ أو ما ينوبُ عن الكسرةِ. وهي أحدُ عواملِ الجرِّ الثلاثةِ في النحوِ العربيِّ. قال الإمامُ ابنُ مالكٍ في الألفيةِ: «هاكَ حروفَ الجرِّ وهيَ مِن وإلى ... حتى وخلا وعدا وفي ومِن وعلى».
+    </div>
+  </div>
+
+  <!-- ======== WIHDA 1: حرف الباء ======== -->
+  <div class="wihda">
+    <div class="wihda-header bab1-color">
+      <div class="wihda-num">الوحدة الأولى — ١</div>
+      <div class="wihda-title">حرفُ الباءِ ومعانيهِ</div>
+    </div>
+    <div class="wihda-body">
+
+      <!-- ① Ahdaf -->
+      <div class="sub-section">
+        <div class="sub-title">
+          <div class="sub-num">①</div>
+          <div>
+            <div class="sub-label">أهداف التعلُّم</div>
+          </div>
+        </div>
+        <div class="goals-box">
+          <ol>
+            <li>أن يعرِّفَ الطالبُ حرفَ الباءِ ويُميِّزَهُ عن غيرِهِ من حروفِ الجرِّ.</li>
+            <li>أن يُعدِّدَ الطالبُ معانيَ حرفِ الباءِ الرئيسيةَ مع الشواهدِ المناسبةِ.</li>
+            <li>أن يُطبِّقَ الطالبُ حرفَ الباءِ في جملٍ مستخرَجةٍ من كتابِ كاشفةِ السجا.</li>
+            <li>أن يُعربَ الطالبُ الاسمَ المجرورَ بالباءِ إعراباً صحيحاً.</li>
+            <li>أن يُميِّزَ الطالبُ بينَ معنى الإلصاقِ والاستعانةِ والمصاحبةِ والسببيةِ في السياقِ.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- ② Tamhid -->
+      <div class="sub-section">
+        <div class="sub-title">
+          <div class="sub-num">②</div>
+          <div>
+            <div class="sub-label">التمهيد</div>
+          </div>
+        </div>
+        <p>قرأنا في كتابِ كاشفةِ السجا عندَ بيانِ أحكامِ الوضوءِ قولَ الشيخِ نواوي رحمهُ اللهُ:</p>
+        <div class="kitab-quote">
+          <p>«...وَغَسَلَ يَدَيْهِ <span class="harf-highlight">بِ</span>الماءِ الطَّهورِ ثلاثاً، ونوى <span class="harf-highlight">بِ</span>قَلْبِهِ رفعَ الحَدَثِ، ومَسَحَ رأسَهُ <span class="harf-highlight">بِ</span>الماءِ...»</p>
+          <div class="kitab-source">(بأسلوب كاشفة السجا) — باب الوضوء</div>
+        </div>
+        <p>لاحِظْ كيفَ تكرَّرَ حرفُ «الباءِ» في هذهِ العبارةِ بمعانٍ مختلفةٍ: الاستعانةُ (بالماء)، والظرفيةُ (بقلبه)، والإلصاقُ (بالماء في المسح). هذا التنوُّعُ في المعاني هو ما سنتعلَّمُهُ في هذه الوحدةِ.</p>
+      </div>
+
+      <!-- ③ Mafhum -->
+      <div class="sub-section">
+        <div class="sub-title">
+          <div class="sub-num">③</div>
+          <div>
+            <div class="sub-label">المفهوم</div>
+          </div>
+        </div>
+        <div class="mafhum-box">
+          <p>حرفُ «الباءِ» من أكثرِ حروفِ الجرِّ استعمالاً في العربيةِ، وهو من الحروفِ الأصليةِ<sup class="footnote-mark">١</sup>. يدخلُ على الاسمِ فيجرُّهُ، والاسمُ المجرورُ بعدَهُ يُسمَّى «مجروراً بالباءِ» أو «مجروراً بحرفِ الجرِّ». وشبهُ الجملةِ «الباء + المجرور» يُسمَّى شبهَ جملةٍ جارٍّ ومجرورٍ.</p>
+          <p>تشبيهٌ توضيحيٌّ: الباءُ كالخيطِ الذي يربطُ فعلاً باسمٍ، ويُبيِّنُ نوعَ العلاقةِ بينَهُما سواءٌ أكانَت أداةً أم مكاناً أم سبباً أم مصاحبةً.</p>
+        </div>
+      </div>
+
+      <!-- ④ Anwa' -->
+      <div class="sub-section">
+        <div class="sub-title">
+          <div class="sub-num">④</div>
+          <div>
+            <div class="sub-label">أنواعُهُ ومعانيهِ</div>
+          </div>
+        </div>
+        <p>للباءِ معانٍ كثيرةٌ، أبرزُها وأكثرُها ورودًا في كاشفةِ السجا ما يلي:</p>
+        <div class="harf-grid">
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">بِ</div>
+              <div>
+                <div class="harf-name">الإلصاق</div>
+              </div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan kontak/sentuhan langsung. Ini makna <strong>asal dan paling dasar</strong> huruf Ba'.</div>
+              <div class="harf-example">مَسَحَ رأسَهُ <span class="harf-highlight">بِ</span>الماءِ<br><span style="font-size:13px; color:var(--text-muted);">"Mengusap kepalanya dengan air (bersentuhan)"</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">بِ</div>
+              <div>
+                <div class="harf-name">الاستعانة</div>
+              </div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan alat/sarana yang digunakan. Padanan: <strong>"dengan menggunakan..."</strong></div>
+              <div class="harf-example">غَسَلَ يَدَيْهِ <span class="harf-highlight">بِ</span>الماءِ<br><span style="font-size:13px; color:var(--text-muted);">"Membasuh kedua tangannya dengan air (sebagai alat)"</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">بِ</div>
+              <div>
+                <div class="harf-name">المصاحبة</div>
+              </div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan kebersamaan. Padanan: <strong>"beserta" / "bersama"</strong>.</div>
+              <div class="harf-example">ادخلوا <span class="harf-highlight">بِ</span>سلامٍ آمنين<br><span style="font-size:13px; color:var(--text-muted);">"Masuklah beserta keselamatan"</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">بِ</div>
+              <div>
+                <div class="harf-name">السببية</div>
+              </div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan sebab. Padanan: <strong>"karena" / "disebabkan"</strong>.</div>
+              <div class="harf-example">تَنَجَّسَ الماءُ <span class="harf-highlight">بِ</span>وُقوعِ النَّجَاسَةِ<br><span style="font-size:13px; color:var(--text-muted);">"Air itu najis karena jatuhnya najasah"</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">بِ</div>
+              <div>
+                <div class="harf-name">الظرفية</div>
+              </div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan tempat atau waktu. Setara dengan "في". Padanan: <strong>"di dalam" / "pada"</strong>.</div>
+              <div class="harf-example">نوى <span class="harf-highlight">بِ</span>قَلْبِهِ<br><span style="font-size:13px; color:var(--text-muted);">"Berniat di dalam hatinya"</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">بِ</div>
+              <div>
+                <div class="harf-name">القسَم</div>
+              </div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Huruf sumpah pertama. Masuk pada lafal agung. Padanan: <strong>"Demi..."</strong></div>
+              <div class="harf-example"><span class="harf-highlight">بِ</span>اللهِ لَأَصدُقَنَّ<br><span style="font-size:13px; color:var(--text-muted);">"Demi Allah, sungguh aku akan jujur"</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <strong>تنبيه:</strong> الإلصاقُ هو الأصلُ في معنى الباءِ، وسائرُ المعاني مُتفرِّعةٌ عنهُ بنظرٍ دقيقٍ. ولذلكَ قالَ النحاةُ: «الباءُ للإلصاقِ حقيقةً ومجازاً».
+        </div>
+      </div>
+
+      <!-- ⑤ Amtsilah -->
+      <div class="sub-section">
+        <div class="sub-title">
+          <div class="sub-num">⑤</div>
+          <div>
+            <div class="sub-label">الأمثلةُ من كتابِ كاشفةِ السجا</div>
+          </div>
+        </div>
+        <ul class="amtsilah-list">
+          <li>
+            <div class="num">١</div>
+            <div class="text">
+              الطَّهارةُ شَرطٌ مِن شُروطِ الصَّلاةِ، ولا تَصِحُّ إلاَّ <span class="harf-highlight">بِ</span>الماءِ الطَّهورِ.
+              <span class="trans">Bersuci adalah syarat dari syarat-syarat shalat, dan tidak sah kecuali dengan air yang mensucikan.</span>
+            </div>
+          </li>
+          <li>
+            <div class="num">٢</div>
+            <div class="text">
+              النِّيَّةُ شَرطٌ لِصِحَّةِ الوُضوءِ، وتَكونُ <span class="harf-highlight">بِ</span>القَلبِ لا <span class="harf-highlight">بِ</span>اللِّسانِ فقطْ.
+              <span class="trans">Niat adalah syarat sahnya wudu, dan niat itu dilakukan dengan hati, bukan hanya dengan lisan.</span>
+            </div>
+          </li>
+          <li>
+            <div class="num">٣</div>
+            <div class="text">
+              يَنجُسُ الماءُ القليلُ <span class="harf-highlight">بِ</span>مُلاقاةِ النَّجاسةِ وإن لم يَتَغيَّرْ.
+              <span class="trans">Air yang sedikit menjadi najis karena bersentuhan dengan najasah meskipun tidak berubah.</span>
+            </div>
+          </li>
+          <li>
+            <div class="num">٤</div>
+            <div class="text">
+              غَسَلَ يَدَيْهِ <span class="harf-highlight">بِ</span>الماءِ ثلاثاً قَبلَ إدخالِهِما في الإناءِ.
+              <span class="trans">Ia membasuh kedua tangannya dengan air tiga kali sebelum memasukkan keduanya ke dalam bejana.</span>
+            </div>
+          </li>
+          <li>
+            <div class="num">٥</div>
+            <div class="text">
+              يُستحبُّ للمُصلِّي أن يَستعيذَ <span class="harf-highlight">بِ</span>اللهِ مِنَ الشَّيطانِ الرَّجيمِ قَبلَ الافتتاحِ.
+              <span class="trans">Disunahkan bagi orang yang shalat untuk berlindung kepada Allah dari setan yang terkutuk sebelum takbiratul ihram.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ⑥ Jadwal -->
+      <div class="sub-section">
+        <div class="sub-title">
+          <div class="sub-num">⑥</div>
+          <div>
+            <div class="sub-label">جدولُ التوضيحِ</div>
+          </div>
+        </div>
+        <div class="jadwal-wrapper">
+          <table class="jadwal">
+            <thead>
+              <tr>
+                <th>الحرف</th>
+                <th>المعنى</th>
+                <th>المثال</th>
+                <th>إعراب المجرور</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="harf-col">بِ</td>
+                <td class="makna-col">الاستعانة (alat)</td>
+                <td>غَسَلَ <span class="harf-highlight">بِ</span>الماءِ</td>
+                <td class="irab-col">الماءُ: اسم مجرور بالباء، وعلامة جره الكسرة الظاهرة</td>
+              </tr>
+              <tr>
+                <td class="harf-col">بِ</td>
+                <td class="makna-col">الظرفية (tempat)</td>
+                <td>نوى <span class="harf-highlight">بِ</span>قَلبِهِ</td>
+                <td class="irab-col">قَلبِ: اسم مجرور بالباء، وعلامة جره الكسرة، وهو مضاف، والهاء ضمير مضاف إليه</td>
+              </tr>
+              <tr>
+                <td class="harf-col">بِ</td>
+                <td class="makna-col">السببية (sebab)</td>
+                <td>يَنجُسُ <span class="harf-highlight">بِ</span>مُلاقاةِ النَّجاسةِ</td>
+                <td class="irab-col">مُلاقاةِ: اسم مجرور بالباء، وعلامة جره الكسرة، وهو مضاف</td>
+              </tr>
+              <tr>
+                <td class="harf-col">بِ</td>
+                <td class="makna-col">الإلصاق (kontak)</td>
+                <td>مَسَحَ <span class="harf-highlight">بِ</span>الماءِ</td>
+                <td class="irab-col">الماءُ: اسم مجرور بالباء، وعلامة جره الكسرة الظاهرة</td>
+              </tr>
+              <tr>
+                <td class="harf-col">بِ</td>
+                <td class="makna-col">القسَم (sumpah)</td>
+                <td><span class="harf-highlight">بِ</span>اللهِ لَأَصدُقَنَّ</td>
+                <td class="irab-col">اللهِ: اسم مجرور بالباء، وعلامة جره الكسرة الظاهرة</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ⑦ Tamrinat -->
+      <div class="sub-section">
+        <div class="sub-title">
+          <div class="sub-num">⑦</div>
+          <div>
+            <div class="sub-label">التدريباتُ والتقويمُ</div>
+          </div>
+        </div>
+        <div class="tamrin-section">
+          <div class="tamrin-title">تدريبات الوحدة الأولى</div>
+
+          <div class="tamrin-type">أولاً: اختيارٌ من متعدِّدٍ <span class="tamrin-type-id">Pilihan Ganda</span></div>
+
+          <div class="soal">
+            <span class="soal-num">١.</span> في جملةِ «غَسَلَ يَدَيْهِ بِالماءِ» — ما معنى حرفِ الباءِ هنا؟
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> السببية</li>
+              <li><span class="opt-label">ب</span> الاستعانة</li>
+              <li><span class="opt-label">ج</span> القسَم</li>
+              <li><span class="opt-label">د</span> المصاحبة</li>
+            </ul>
+          </div>
+          <div class="soal">
+            <span class="soal-num">٢.</span> في «يَنجُسُ الماءُ بِمُلاقاةِ النَّجاسةِ» — معنى الباءِ هنا:
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> الإلصاق</li>
+              <li><span class="opt-label">ب</span> الظرفية</li>
+              <li><span class="opt-label">ج</span> السببية</li>
+              <li><span class="opt-label">د</span> الاستعانة</li>
+            </ul>
+          </div>
+          <div class="soal">
+            <span class="soal-num">٣.</span> علامةُ جرِّ الاسمِ المجرورِ بالباءِ في «نوى بِقَلبِهِ»:
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> الفتحة</li>
+              <li><span class="opt-label">ب</span> الضمة</li>
+              <li><span class="opt-label">ج</span> الكسرة</li>
+              <li><span class="opt-label">د</span> السكون</li>
+            </ul>
+          </div>
+          <div class="soal">
+            <span class="soal-num">٤.</span> أيُّ الجملِ التاليةِ فيها الباءُ للمصاحبةِ؟
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> كَتَبَ بِالقلمِ</li>
+              <li><span class="opt-label">ب</span> ادخلوا بِسلامٍ</li>
+              <li><span class="opt-label">ج</span> مَرَّ بِالمسجدِ</li>
+              <li><span class="opt-label">د</span> أقسمَ باللهِ</li>
+            </ul>
+          </div>
+          <div class="soal">
+            <span class="soal-num">٥.</span> الباءُ في «تَنَجَّسَ الثوبُ بِالبولِ» تفيدُ:
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> الاستعانة</li>
+              <li><span class="opt-label">ب</span> السببية</li>
+              <li><span class="opt-label">ج</span> الإلصاق</li>
+              <li><span class="opt-label">د</span> الظرفية</li>
+            </ul>
+          </div>
+
+          <div class="tamrin-type">ثانياً: أكمِلِ الجُمَل <span class="tamrin-type-id">Isian Rumpang</span></div>
+
+          <div class="soal">
+            <span class="soal-num">١.</span> «حرفُ الباءِ من حروفِ ________، ويدخلُ على الاسمِ فيجعلَهُ ________»
+          </div>
+          <div class="soal">
+            <span class="soal-num">٢.</span> «في جملةِ: المسلمُ يَتوضَّأُ بِالماءِ الطَّهورِ — الماءُ مجرورٌ بحرفِ الجرِّ ______ وعلامةُ جرِّهِ ______»
+          </div>
+          <div class="soal">
+            <span class="soal-num">٣.</span> «الباءُ تُفيدُ ______ في قولِنا: كَتَبَ بِالقلمِ، وتُفيدُ ______ في قولِنا: تَنَجَّسَ بِالنَّجاسةِ»
+          </div>
+
+          <div class="tamrin-type">ثالثاً: أعرِبْ ما يلي <span class="tamrin-type-id">Analisis I'rab</span></div>
+
+          <div class="soal">
+            <span class="soal-num">١.</span> أعرِبْ ما تحتَهُ خطٌّ:<br>«الطَّهارةُ لا تَصِحُّ إلاَّ <u>بِالماءِ</u> الطَّهورِ»
+          </div>
+          <div class="soal">
+            <span class="soal-num">٢.</span> أعرِبْ ما تحتَهُ خطٌّ:<br>«النِّيَّةُ تَكونُ <u>بِالقَلبِ</u> لا بِاللِّسانِ»
+          </div>
+
+          <div class="tamrin-type">رابعاً: تطبيقٌ من نصِّ كاشفةِ السجا <span class="tamrin-type-id">Terapan Teks</span></div>
+          <div class="soal">
+            اقرأِ العبارةَ التاليةَ ثم أجِبْ:<br>
+            «المياهُ أربعةُ أقسامٍ: طَهورٌ وطاهرٌ ونجسٌ ومَشكوكٌ فيهِ. فالطَّهورُ هوَ الماءُ المُطلَقُ الذي يَرفعُ الحَدَثَ بِاستعمالِهِ ويُزيلُ الخَبَثَ بِإجرائِهِ»<br><br>
+            أ) استخرِجْ جميعَ حروفِ الجرِّ «باء» من العبارةِ وبيِّنْ معنى كلٍّ منها.<br>
+            ب) ما الاسمُ المجرورُ بالباءِ الأولى؟ وما علامةُ جرِّهِ؟
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footnotes">
+      <div class="footnotes-title">الهوامش — Catatan Kaki</div>
+      <div class="fn-item"><span class="fn-num">١.</span> الحروفُ الأصليةُ (Huruf asli): هي الحروفُ التي لا تأتي زائدةً بل لها معنًى دائماً — berbeda dengan huruf zaidah (tambahan) yang tidak memiliki makna tersendiri.</div>
+      <div class="fn-item"><span class="fn-num">٢.</span> جميعُ الأمثلةِ مستخرجةٌ من أسلوبِ كاشفةِ السجا ومتناسِبةٌ معَ موضوعاتِهِ الفقهيةِ. العباراتُ المُشارُ إليها بـ(بأسلوب كاشفة السجا) مُعادَةُ الصياغةِ بأسلوبِ الكتابِ مع الحفاظِ على روحِهِ.</div>
+    </div>
+  </div>
+
+  <!-- ======== WIHDA 2: من / إلى / على / في / عن ======== -->
+  <div class="wihda">
+    <div class="wihda-header bab1-w2">
+      <div class="wihda-num">الوحدة الثانية — ٢</div>
+      <div class="wihda-title">حروفُ مِن وإلى وعلى وفي وعن</div>
+    </div>
+    <div class="wihda-body">
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">①</div><div><div class="sub-label">أهداف التعلُّم</div></div></div>
+        <div class="goals-box">
+          <ol>
+            <li>أن يُعدِّدَ الطالبُ المعاني الأساسيةَ لكلٍّ من حروفِ: مِن، وإلى، وعلى، وفي، وعن.</li>
+            <li>أن يُميِّزَ بينَ استخداماتِ هذه الحروفِ في نصوصِ كاشفةِ السجا.</li>
+            <li>أن يُعربَ الاسمَ المجرورَ بكلٍّ من هذه الحروفِ.</li>
+            <li>أن يُوظِّفَ هذه الحروفَ في جملٍ فقهيةٍ مناسبةٍ.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">②</div><div><div class="sub-label">التمهيد</div></div></div>
+        <div class="kitab-quote">
+          <p>«الصَّلواتُ الخمسُ فريضةٌ <span class="harf-highlight">عَلى</span> كلِّ مسلمٍ بالغٍ عاقلٍ، <span class="harf-highlight">مِن</span> طلوعِ الفجرِ إلى غروبِ الشمسِ. والزكاةُ واجبةٌ <span class="harf-highlight">عَلى</span> مَن ملَكَ نصاباً <span class="harf-highlight">مِن</span> المالِ.»</p>
+          <div class="kitab-source">(بأسلوب كاشفة السجا) — باب الصلاة والزكاة</div>
+        </div>
+        <p>في هذهِ العبارةِ نجدُ «مِن» تُفيدُ ابتداءَ الغايةِ، و«إلى» تُفيدُ انتهاءَها، و«على» تُفيدُ الوجوبَ والاستعلاءَ. هذا هو محلُّ دراستِنا في هذه الوحدةِ.</p>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">④</div><div><div class="sub-label">أنواعُها ومعانيها</div></div></div>
+
+        <div class="harf-grid">
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">مِن</div>
+              <div><div class="harf-name">مِنْ</div></div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna"><strong>ابتداء الغاية:</strong> menunjukkan awal/permulaan (dari...)<br><strong>التبعيض:</strong> sebagian<br><strong>البيان:</strong> penjelasan jenis</div>
+              <div class="harf-example">
+                <span class="harf-highlight">مِن</span> طلوعِ الفجرِ<br>
+                الطَّهارةُ شرطٌ <span class="harf-highlight">مِن</span> شروطِ الصلاةِ<br>
+                <span style="font-size:13px; color:var(--text-muted);">ابتداء غاية / تبعيض</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">إلى</div>
+              <div><div class="harf-name">إِلى</div></div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna"><strong>انتهاء الغاية:</strong> menunjukkan akhir/tujuan (hingga...)<br><strong>المعية:</strong> kebersamaan (bersama)</div>
+              <div class="harf-example">
+                <span class="harf-highlight">إلى</span> غروبِ الشمسِ<br>
+                اغسِلْ وَجهَكَ <span class="harf-highlight">إلى</span> المِرفَقَينِ<br>
+                <span style="font-size:13px; color:var(--text-muted);">انتهاء غاية</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">عَلى</div>
+              <div><div class="harf-name">عَلى</div></div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna"><strong>الاستعلاء:</strong> di atas (fisik/makna)<br><strong>الوجوب:</strong> kewajiban (wajib atas...)<br><strong>المصاحبة:</strong> kebersamaan</div>
+              <div class="harf-example">
+                الزكاةُ واجبةٌ <span class="harf-highlight">عَلى</span> المسلمِ<br>
+                مَسَحَ <span class="harf-highlight">عَلى</span> الخُفَّينِ<br>
+                <span style="font-size:13px; color:var(--text-muted);">وجوب / استعلاء</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">في</div>
+              <div><div class="harf-name">فِي</div></div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna"><strong>الظرفية المكانية:</strong> di dalam (tempat)<br><strong>الظرفية الزمانية:</strong> di dalam (waktu)<br><strong>السببية:</strong> karena</div>
+              <div class="harf-example">
+                <span class="harf-highlight">فِي</span> شهرِ رمضانَ<br>
+                الماءُ <span class="harf-highlight">فِي</span> الإناءِ<br>
+                <span style="font-size:13px; color:var(--text-muted);">ظرفية زمانية / مكانية</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="harf-card">
+            <div class="harf-card-header">
+              <div class="harf-symbol">عَن</div>
+              <div><div class="harf-name">عَن</div></div>
+            </div>
+            <div class="harf-card-body">
+              <div class="harf-makna"><strong>المجاوزة:</strong> melewati/melampaui (dari/tentang)<br><strong>البدلية:</strong> menggantikan<br><strong>التعليل:</strong> sebab</div>
+              <div class="harf-example">
+                سقطَ الحكمُ <span class="harf-highlight">عَن</span> الصبيِّ<br>
+                أجزأَ <span class="harf-highlight">عَن</span> زوجتِهِ<br>
+                <span style="font-size:13px; color:var(--text-muted);">مجاوزة / بدلية</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑤</div><div><div class="sub-label">الأمثلةُ من كتابِ كاشفةِ السجا</div></div></div>
+        <ul class="amtsilah-list">
+          <li>
+            <div class="num">١</div>
+            <div class="text">
+              الطَّهارةُ شرطٌ <span class="harf-highlight">مِن</span> شروطِ الصَّلاةِ ولا تَصِحُّ الصَّلاةُ إلاَّ بها.
+              <span class="trans">Bersuci adalah syarat dari syarat-syarat shalat dan shalat tidak sah kecuali dengannya.</span>
+            </div>
+          </li>
+          <li>
+            <div class="num">٢</div>
+            <div class="text">
+              الصَّلواتُ الخمسُ فريضةٌ <span class="harf-highlight">عَلى</span> كلِّ مسلمٍ بالغٍ عاقلٍ ذكراً كانَ أم أنثى.
+              <span class="trans">Shalat lima waktu adalah fardu atas setiap muslim yang balig dan berakal, baik laki-laki maupun perempuan.</span>
+            </div>
+          </li>
+          <li>
+            <div class="num">٣</div>
+            <div class="text">
+              الصَّومُ <span class="harf-highlight">فِي</span> شهرِ رمضانَ واجبٌ <span class="harf-highlight">عَلى</span> كلِّ مسلمٍ مكلَّفٍ.
+              <span class="trans">Puasa di bulan Ramadan wajib atas setiap muslim mukallaf.</span>
+            </div>
+          </li>
+          <li>
+            <div class="num">٤</div>
+            <div class="text">
+              يَغسلُ وجهَهُ <span class="harf-highlight">مِن</span> منبتِ شعرِ الرأسِ <span class="harf-highlight">إلى</span> ما انحدرَ <span class="harf-highlight">مِن</span> اللِّحيةِ والذَّقنِ.
+              <span class="trans">Ia membasuh wajahnya dari tempat tumbuhnya rambut kepala hingga yang menurun dari janggut dan dagu.</span>
+            </div>
+          </li>
+          <li>
+            <div class="num">٥</div>
+            <div class="text">
+              يَسقطُ الحجُّ <span class="harf-highlight">عَن</span> المريضِ الذي يَعجزُ <span class="harf-highlight">عَن</span> السَّفرِ لِعُذرٍ شرعيٍّ.
+              <span class="trans">Haji gugur dari orang sakit yang tidak mampu bepergian karena uzur syar'i.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑥</div><div><div class="sub-label">جدولُ التوضيحِ</div></div></div>
+        <div class="jadwal-wrapper">
+          <table class="jadwal">
+            <thead>
+              <tr><th>الحرف</th><th>المعنى الرئيسي</th><th>المثال من كاشفة السجا</th><th>إعراب المجرور</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="harf-col">مِن</td>
+                <td>ابتداء الغاية</td>
+                <td><span class="harf-highlight">مِن</span> منبتِ الشَّعرِ</td>
+                <td class="irab-col">منبتِ: مجرور بـ«مِن»، وعلامة جره الكسرة، وهو مضاف</td>
+              </tr>
+              <tr>
+                <td class="harf-col">إلى</td>
+                <td>انتهاء الغاية</td>
+                <td><span class="harf-highlight">إلى</span> المِرفَقَينِ</td>
+                <td class="irab-col">المِرفَقَينِ: مجرور بـ«إلى»، وعلامة جره الياء لأنه مثنى</td>
+              </tr>
+              <tr>
+                <td class="harf-col">عَلى</td>
+                <td>الاستعلاء / الوجوب</td>
+                <td>فريضةٌ <span class="harf-highlight">عَلى</span> كلِّ مسلمٍ</td>
+                <td class="irab-col">كلِّ: مجرور بـ«على»، وعلامة جره الكسرة، وهو مضاف</td>
+              </tr>
+              <tr>
+                <td class="harf-col">فِي</td>
+                <td>الظرفية الزمانية</td>
+                <td>الصَّومُ <span class="harf-highlight">فِي</span> شهرِ رمضانَ</td>
+                <td class="irab-col">شهرِ: مجرور بـ«في»، وعلامة جره الكسرة، وهو مضاف</td>
+              </tr>
+              <tr>
+                <td class="harf-col">عَن</td>
+                <td>المجاوزة</td>
+                <td>سقطَ <span class="harf-highlight">عَن</span> المريضِ</td>
+                <td class="irab-col">المريضِ: مجرور بـ«عن»، وعلامة جره الكسرة الظاهرة</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑦</div><div><div class="sub-label">التدريباتُ والتقويمُ</div></div></div>
+        <div class="tamrin-section">
+          <div class="tamrin-title">تدريبات الوحدة الثانية</div>
+
+          <div class="tamrin-type">أولاً: اختيارٌ من متعدِّدٍ</div>
+          <div class="soal"><span class="soal-num">١.</span> «الزكاةُ واجبةٌ عَلى مَن ملَكَ نصاباً» — معنى «على» هنا:
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> الاستعلاء الحقيقي</li><li><span class="opt-label">ب</span> الوجوب</li><li><span class="opt-label">ج</span> الظرفية</li><li><span class="opt-label">د</span> السببية</li>
+            </ul>
+          </div>
+          <div class="soal"><span class="soal-num">٢.</span> «الصَّومُ في شهرِ رمضانَ» — معنى «في» هنا:
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> الظرفية الزمانية</li><li><span class="opt-label">ب</span> الظرفية المكانية</li><li><span class="opt-label">ج</span> السببية</li><li><span class="opt-label">د</span> التعليل</li>
+            </ul>
+          </div>
+          <div class="soal"><span class="soal-num">٣.</span> «مِن» في «الطَّهارةُ شرطٌ مِن شروطِ الصَّلاةِ» تفيدُ:
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> ابتداء الغاية</li><li><span class="opt-label">ب</span> التبعيض</li><li><span class="opt-label">ج</span> البيان</li><li><span class="opt-label">د</span> الانتهاء</li>
+            </ul>
+          </div>
+          <div class="soal"><span class="soal-num">٤.</span> علامةُ جرِّ «المِرفَقَينِ» في «اغسِلْ يَدَيكَ إلى المِرفَقَينِ»:
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> الكسرة</li><li><span class="opt-label">ب</span> الفتحة</li><li><span class="opt-label">ج</span> الياء</li><li><span class="opt-label">د</span> الألف</li>
+            </ul>
+          </div>
+          <div class="soal"><span class="soal-num">٥.</span> «سَقَطَ الحجُّ عَنِ المريضِ» — «عن» هنا تفيدُ:
+            <ul class="soal-choices">
+              <li><span class="opt-label">أ</span> المجاوزة</li><li><span class="opt-label">ب</span> ابتداء الغاية</li><li><span class="opt-label">ج</span> الاستعلاء</li><li><span class="opt-label">د</span> الظرفية</li>
+            </ul>
+          </div>
+
+          <div class="tamrin-type">ثانياً: أكمِلِ الجُمَل</div>
+          <div class="soal"><span class="soal-num">١.</span> «حرفُ «إلى» يفيدُ ________ الغايةِ، ومثالُهُ من كاشفةِ السجا: ________»</div>
+          <div class="soal"><span class="soal-num">٢.</span> «حرفُ «في» يفيدُ الظرفيةَ ________ والزمانيةَ، وفي قولِنا «في شهرِ رمضانَ» هو ظرفيةٌ ________»</div>
+          <div class="soal"><span class="soal-num">٣.</span> ««مِن» في «مِن طلوعِ الفجرِ إلى غروبِ الشمسِ» تفيدُ ________ ، و«إلى» تفيدُ ________»</div>
+
+          <div class="tamrin-type">ثالثاً: أعرِبْ ما يلي</div>
+          <div class="soal"><span class="soal-num">١.</span> «الصَّلواتُ الخمسُ فريضةٌ <u>عَلى كلِّ مسلمٍ</u>» — أعرِبِ الجارَّ والمجرورَ.</div>
+          <div class="soal"><span class="soal-num">٢.</span> «يَغسِلُ وجهَهُ <u>مِن</u> منبتِ الشَّعرِ <u>إلى</u> الذَّقنِ» — بيِّنِ الجارَّ والمجرورَ وما يتعلَّقانِ بهِ.</div>
+
+          <div class="tamrin-type">رابعاً: تطبيقٌ من كاشفةِ السجا</div>
+          <div class="soal">اقرأِ النصَّ ثم أجِبْ:<br>«الزكاةُ واجبةٌ عَلى كلِّ مسلمٍ حرٍّ بالغٍ عاقلٍ، مَلَكَ نصاباً مِنَ الأموالِ الزكويةِ، وحالَ عليهِ الحولُ»<br><br>أ) استخرِجْ حروفَ الجرِّ الواردةَ في النصِّ وسمِّ معنى كلٍّ منها.<br>ب) ما الاسمُ المجرورُ بـ«على»؟ وما علامةُ جرِّهِ؟</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footnotes">
+      <div class="footnotes-title">الهوامش</div>
+      <div class="fn-item"><span class="fn-num">١.</span> ابتداءُ الغايةِ (Ibtidā' al-ghāyah): مصطلحٌ نحويٌّ يُعبِّرُ عنهُ النحاةُ بـ«ابتداءِ الغايةِ المكانيةِ» أو «الزمانيةِ»، ويُرادُ بهِ أنَّ «مِن» تُحدِّدُ نقطةَ البدايةِ. — Istilah yang menunjukkan titik awal suatu perjalanan atau rentang waktu.</div>
+      <div class="fn-item"><span class="fn-num">٢.</span> التبعيضُ (al-Tab'īdh): يُشارُ إليهِ بقولِهِم: يصحُّ وضعُ «بعضٍ» مكانَ «مِن» إذا كانَت للتبعيضِ. مثالٌ: «الطَّهارةُ شرطٌ مِن (= بعضُ) شروطِ الصلاةِ». — Makna sebagian: dapat diganti dengan kata "بعض".</div>
+    </div>
+  </div>
+
+  <!-- ======== WIHDA 3: اللام ======== -->
+  <div class="wihda">
+    <div class="wihda-header bab1-w3">
+      <div class="wihda-num">الوحدة الثالثة — ٣</div>
+      <div class="wihda-title">اللامُ وأنواعُها</div>
+    </div>
+    <div class="wihda-body">
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">①</div><div><div class="sub-label">أهداف التعلُّم</div></div></div>
+        <div class="goals-box">
+          <ol>
+            <li>أن يُميِّزَ الطالبُ بينَ اللامِ الجارَّةِ وغيرِها من أنواعِ اللامِ.</li>
+            <li>أن يُعدِّدَ معاني اللامِ الجارَّةِ الرئيسيةَ.</li>
+            <li>أن يُطبِّقَ اللامَ في سياقاتٍ فقهيةٍ من كاشفةِ السجا.</li>
+            <li>أن يُعربَ الاسمَ المجرورَ باللامِ إعراباً صحيحاً.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">②</div><div><div class="sub-label">التمهيد</div></div></div>
+        <div class="kitab-quote">
+          <p>«وشرطُ وجوبِ الزكاةِ أن يَكونَ المالُ <span class="harf-highlight">لِ</span>لمالكِ ملكاً تامًّا، ويَكونَ <span class="harf-highlight">لِ</span>لنِّصابِ حولٌ كاملٌ، والزكاةُ تَجبُ <span class="harf-highlight">لِ</span>لفقراءِ والمساكينِ وغيرِهم.»</p>
+          <div class="kitab-source">(بأسلوب كاشفة السجا) — باب الزكاة</div>
+        </div>
+        <p>تَكرَّرَت «اللامُ» في هذهِ العبارةِ بمعاني الملكيةِ والاختصاصِ والانتفاعِ. وهذا ما سيتعلَّمُهُ الطالبُ في هذه الوحدةِ.</p>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">③</div><div><div class="sub-label">المفهوم</div></div></div>
+        <div class="mafhum-box">
+          <p>اللامُ الجارَّةُ حرفٌ أحاديُّ المبنى، وهي من الحروفِ الأكثرِ تنوُّعاً في المعنى في النحوِ العربيِّ. تدخلُ على الأسماءِ فتجرُّها، وقد تُسمَّى أحياناً «لامَ الملكِ» أو «لامَ الاستحقاقِ» أو «لامَ الانتفاعِ» بحسبِ معناها في السياقِ.</p>
+          <p>تشبيهٌ: اللامُ كعلامةِ التبويبِ — تُخبرُنا «لِمَن» أو «لأيِّ غرضٍ» شيءٌ ما.</p>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">④</div><div><div class="sub-label">أنواعُها ومعانيها</div></div></div>
+        <div class="harf-grid">
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">لِ</div><div><div class="harf-name">لام الملك</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan kepemilikan nyata. Padanan: <strong>"milik..."</strong></div>
+              <div class="harf-example">المالُ <span class="harf-highlight">لِ</span>لمالكِ<br><span style="font-size:13px;color:var(--text-muted);">Harta adalah milik pemiliknya</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">لِ</div><div><div class="harf-name">لام الاستحقاق</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan hak yang layak diterima. Padanan: <strong>"berhak..."</strong></div>
+              <div class="harf-example">الزكاةُ <span class="harf-highlight">لِ</span>لفقراءِ<br><span style="font-size:13px;color:var(--text-muted);">Zakat berhak diterima orang fakir</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">لِ</div><div><div class="harf-name">لام التعليل</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan sebab atau tujuan. Padanan: <strong>"karena" / "untuk"</strong></div>
+              <div class="harf-example">يَتوضَّأُ <span class="harf-highlight">لِ</span>لصَّلاةِ<br><span style="font-size:13px;color:var(--text-muted);">Berwudu untuk shalat</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">لِ</div><div><div class="harf-name">لام الاختصاص</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan kekhususan tanpa kepemilikan penuh. Padanan: <strong>"khusus bagi..."</strong></div>
+              <div class="harf-example">هذا الحكمُ <span class="harf-highlight">لِ</span>لرِّجالِ<br><span style="font-size:13px;color:var(--text-muted);">Hukum ini khusus bagi laki-laki</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑤</div><div><div class="sub-label">الأمثلةُ من كتابِ كاشفةِ السجا</div></div></div>
+        <ul class="amtsilah-list">
+          <li><div class="num">١</div><div class="text">الزكاةُ واجبةٌ <span class="harf-highlight">لِ</span>لفقراءِ والمساكينِ والعاملينَ عليها.<span class="trans">Zakat wajib diserahkan kepada orang-orang fakir, miskin, dan amil zakat.</span></div></li>
+          <li><div class="num">٢</div><div class="text">يَتوضَّأُ المسلمُ <span class="harf-highlight">لِ</span>لصَّلاةِ وللطَّوافِ وقراءةِ المصحفِ.<span class="trans">Seorang muslim berwudu untuk shalat, tawaf, dan membaca mushaf.</span></div></li>
+          <li><div class="num">٣</div><div class="text">المالُ الذي حالَ عليهِ الحولُ <span class="harf-highlight">لِ</span>لمالكِ تَجبُ فيهِ الزكاةُ.<span class="trans">Harta yang telah melewati satu tahun (haul) milik pemiliknya wajib dizakati.</span></div></li>
+          <li><div class="num">٤</div><div class="text">الحمدُ <span class="harf-highlight">لِ</span>للهِ ربِّ العالمينَ <span class="harf-highlight">لِ</span>كونِهِ المُنعِمَ المُتفضِّلَ.<span class="trans">Segala puji bagi Allah Rabb semesta alam karena Dialah Yang Maha Pemberi nikmat.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑥</div><div><div class="sub-label">جدولُ التوضيحِ</div></div></div>
+        <div class="jadwal-wrapper">
+          <table class="jadwal">
+            <thead><tr><th>الحرف</th><th>النوع</th><th>المثال</th><th>إعراب المجرور</th></tr></thead>
+            <tbody>
+              <tr><td class="harf-col">لِ</td><td>الملك</td><td>المالُ <span class="harf-highlight">لِ</span>لمالكِ</td><td class="irab-col">المالكِ: مجرور باللام، وعلامة جره الكسرة الظاهرة</td></tr>
+              <tr><td class="harf-col">لِ</td><td>الاستحقاق</td><td>الزكاةُ <span class="harf-highlight">لِ</span>لفقراءِ</td><td class="irab-col">الفقراءِ: مجرور باللام، وعلامة جره الكسرة الظاهرة</td></tr>
+              <tr><td class="harf-col">لِ</td><td>التعليل</td><td>يَتوضَّأُ <span class="harf-highlight">لِ</span>لصَّلاةِ</td><td class="irab-col">الصَّلاةِ: مجرور باللام، وعلامة جره الكسرة الظاهرة</td></tr>
+              <tr><td class="harf-col">لِ</td><td>الاختصاص</td><td>هذا <span class="harf-highlight">لِ</span>لرِّجالِ</td><td class="irab-col">الرِّجالِ: مجرور باللام، وعلامة جره الكسرة الظاهرة</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑦</div><div><div class="sub-label">التدريباتُ والتقويمُ</div></div></div>
+        <div class="tamrin-section">
+          <div class="tamrin-title">تدريبات الوحدة الثالثة</div>
+
+          <div class="tamrin-type">أولاً: اختيارٌ من متعدِّدٍ</div>
+          <div class="soal"><span class="soal-num">١.</span> «يَتوضَّأُ المسلمُ لِلصَّلاةِ» — اللامُ هنا للـ:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> الملك</li><li><span class="opt-label">ب</span> التعليل</li><li><span class="opt-label">ج</span> الاستحقاق</li><li><span class="opt-label">د</span> الاختصاص</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٢.</span> «الزكاةُ لِلفقراءِ والمساكينِ» — اللامُ هنا للـ:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> الملك</li><li><span class="opt-label">ب</span> التعليل</li><li><span class="opt-label">ج</span> الاستحقاق</li><li><span class="opt-label">د</span> السببية</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٣.</span> علامةُ جرِّ «الفقراءِ» في «الزكاةُ لِلفقراءِ»:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> الفتحة</li><li><span class="opt-label">ب</span> الكسرة</li><li><span class="opt-label">ج</span> الياء</li><li><span class="opt-label">د</span> الضمة</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٤.</span> أيُّ الجملِ التاليةِ فيها اللامُ لِلملكِ؟
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> صلَّيتُ لِلهِ</li><li><span class="opt-label">ب</span> الكتابُ لِلطالبِ</li><li><span class="opt-label">ج</span> الزكاةُ لِلفقراءِ</li><li><span class="opt-label">د</span> توضَّأتُ لِلصلاةِ</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٥.</span> «الحمدُ للهِ» — اللامُ هنا للـ:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> الملك</li><li><span class="opt-label">ب</span> الاستحقاق</li><li><span class="opt-label">ج</span> التعليل</li><li><span class="opt-label">د</span> الاختصاص</li></ul>
+          </div>
+
+          <div class="tamrin-type">ثانياً: أكمِلِ الجُمَل</div>
+          <div class="soal"><span class="soal-num">١.</span> «اللامُ التي تفيدُ السببَ أو الغرضَ تُسمَّى لامَ ________ ، ومثالُها: ________»</div>
+          <div class="soal"><span class="soal-num">٢.</span> «اللامُ في «يَصومُ المسلمُ لِلهِ» تفيدُ ________ ، والاسمُ المجرورُ بها هو ________»</div>
+          <div class="soal"><span class="soal-num">٣.</span> «المجرورُ بعدَ حرفِ الجرِّ اللامِ يُسمَّى ________ ، وعلامةُ جرِّهِ الأصليةُ ________»</div>
+
+          <div class="tamrin-type">ثالثاً: أعرِبْ ما يلي</div>
+          <div class="soal"><span class="soal-num">١.</span> أعرِبِ الجارَّ والمجرورَ في: «الزَّكاةُ واجبةٌ <u>لِلفقراءِ</u>»</div>
+          <div class="soal"><span class="soal-num">٢.</span> أعرِبِ الجارَّ والمجرورَ في: «يَتوضَّأُ <u>لِلصَّلاةِ</u>»</div>
+
+          <div class="tamrin-type">رابعاً: تطبيقٌ من كاشفةِ السجا</div>
+          <div class="soal">استخرِجْ جميعَ حروفِ الجرِّ «لام» من الفقرةِ التاليةِ، وبيِّنْ نوعَها ومعناها:<br>«الحجُّ فريضةٌ لِلمستطيعِ، يُؤدَّى لِلهِ، والنفقةُ فيهِ لِلحاجِّ، والثوابُ لِكلِّ مَن أخلصَ نيَّتَهُ»</div>
+        </div>
+      </div>
+    </div>
+    <div class="footnotes">
+      <div class="footnotes-title">الهوامش</div>
+      <div class="fn-item"><span class="fn-num">١.</span> لامُ الاستحقاقِ (Lam al-Istihqāq): تُسمَّى أيضاً «لامَ الانتفاعِ» عندَ بعضِ النحاةِ. الفرقُ بينَها وبينَ لامِ الملكِ: أنَّ المستحقَّ لا يملكُ ملكًا حقيقيًّا، بل يستحقُّ الانتفاعَ. — Lam kepantasan: berbeda dari lam kepemilikan.</div>
+    </div>
+  </div>
+
+  <!-- ======== WIHDA 4: حتى والكاف والتاء وواو القسم ======== -->
+  <div class="wihda">
+    <div class="wihda-header bab1-w4">
+      <div class="wihda-num">الوحدة الرابعة — ٤</div>
+      <div class="wihda-title">حَتَّى والكافُ والتاءُ وواوُ القسَمِ</div>
+    </div>
+    <div class="wihda-body">
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">①</div><div><div class="sub-label">أهداف التعلُّم</div></div></div>
+        <div class="goals-box">
+          <ol>
+            <li>أن يُميِّزَ الطالبُ بينَ «حتى» الجارَّةِ و«حتى» الناصبةِ و«حتى» العاطفةِ.</li>
+            <li>أن يَعرِفَ معنى الكافِ الجارَّةِ وتمييزَها عن غيرِها.</li>
+            <li>أن يَعرِفَ التاءَ وواوَ القسَمِ وخصائصَهُما.</li>
+            <li>أن يُطبِّقَ هذه الحروفَ في سياقاتٍ من كاشفةِ السجا.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">②</div><div><div class="sub-label">التمهيد</div></div></div>
+        <div class="kitab-quote">
+          <p>«يُكملُ المصلِّي صلاتَهُ <span class="harf-highlight">حتَّى</span> آخرِها بخشوعٍ وإقبالٍ. والصلاةُ كالمعراجِ <span class="harf-highlight">كَ</span>ما جاءَ في الحديثِ الشريفِ. <span class="harf-highlight">وَ</span>اللهِ لَيُكرَمَنَّ المؤمنُ الصادقُ.»</p>
+          <div class="kitab-source">(بأسلوب كاشفة السجا) — باب الصلاة</div>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">④</div><div><div class="sub-label">أنواعُها ومعانيها</div></div></div>
+        <div class="harf-grid">
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">حتى</div><div><div class="harf-name">حتَّى الجارَّة</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan <strong>batas akhir</strong> (انتهاء الغاية). Mirip «إلى» tapi lebih menekankantercakupnya batas itu. Masuk pada isim.</div>
+              <div class="harf-example">صامَ <span class="harf-highlight">حتَّى</span> الغروبِ<br><span style="font-size:13px;color:var(--text-muted);">Berpuasa hingga terbenam matahari</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">كَ</div><div><div class="harf-name">الكاف الجارَّة</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan <strong>penyerupaan/perumpamaan</strong> (التشبيه). Padanan: <strong>"seperti"</strong>. Hanya masuk pada isim.</div>
+              <div class="harf-example">الصلاةُ <span class="harf-highlight">كَ</span>المعراجِ<br><span style="font-size:13px;color:var(--text-muted);">Shalat itu seperti mi'raj (bagi orang beriman)</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">تَ</div><div><div class="harf-name">تاء القسَم</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Huruf sumpah <strong>khusus</strong> masuk pada lafal «اللهُ» saja. Padanan: <strong>"Demi Allah!"</strong>. Tidak masuk pada selain «الله».</div>
+              <div class="harf-example"><span class="harf-highlight">تَ</span>اللهِ لَأُؤدِّيَنَّ الزكاةَ<br><span style="font-size:13px;color:var(--text-muted);">Demi Allah, sungguh aku akan menunaikan zakat</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">وَ</div><div><div class="harf-name">واو القسَم</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Huruf sumpah yang paling umum. Masuk pada isim zahir apa pun. Padanan: <strong>"Demi..."</strong></div>
+              <div class="harf-example"><span class="harf-highlight">وَ</span>اللهِ لَأُصلِّيَنَّ<br><span style="font-size:13px;color:var(--text-muted);">Demi Allah, sungguh aku akan shalat</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <strong>تنبيه مهم:</strong> «حتى» ثلاثةُ أوجهٍ: (١) حرفُ جرٍّ — تجرُّ الاسمَ بعدَها. (٢) حرفُ نصبٍ — تنصبُ الفعلَ المضارعَ بعدَها. (٣) حرفُ عطفٍ — تعطفُ اسماً على اسمٍ. المقصودُ هنا النوعُ الأوَّلُ فقطْ.
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑤</div><div><div class="sub-label">الأمثلةُ من كتابِ كاشفةِ السجا</div></div></div>
+        <ul class="amtsilah-list">
+          <li><div class="num">١</div><div class="text">يَصومُ المسلمُ <span class="harf-highlight">حتَّى</span> غروبِ الشمسِ ثمَّ يُفطرُ.<span class="trans">Seorang muslim berpuasa hingga terbenam matahari kemudian berbuka.</span></div></li>
+          <li><div class="num">٢</div><div class="text">الوضوءُ <span class="harf-highlight">كَ</span>المِفتاحِ لِلصَّلاةِ، لا تُقبَلُ صلاةٌ بِغيرِهِ.<span class="trans">Wudu itu seperti kunci bagi shalat, tidak diterima shalat tanpanya.</span></div></li>
+          <li><div class="num">٣</div><div class="text"><span class="harf-highlight">وَ</span>اللهِ إنَّ الصَّلاةَ عمودُ الدِّينِ وأساسُهُ.<span class="trans">Demi Allah, sesungguhnya shalat adalah tiang agama dan pondasinya.</span></div></li>
+          <li><div class="num">٤</div><div class="text"><span class="harf-highlight">تَ</span>اللهِ لقَد أمرَ اللهُ بالزكاةِ في مواضعَ كثيرةٍ من القرآنِ الكريمِ.<span class="trans">Demi Allah, sungguh Allah telah memerintahkan zakat di banyak tempat dalam Al-Qur'an al-Karim.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑥</div><div><div class="sub-label">جدولُ التوضيحِ</div></div></div>
+        <div class="jadwal-wrapper">
+          <table class="jadwal">
+            <thead><tr><th>الحرف</th><th>المعنى</th><th>المثال</th><th>ملاحظة</th></tr></thead>
+            <tbody>
+              <tr><td class="harf-col">حتَّى</td><td>انتهاء الغاية</td><td>صامَ <span class="harf-highlight">حتَّى</span> الغروبِ</td><td class="irab-col">الغروبِ: مجرور بـ«حتى»، كسرة</td></tr>
+              <tr><td class="harf-col">كَ</td><td>التشبيه</td><td>الوضوءُ <span class="harf-highlight">كَ</span>المِفتاحِ</td><td class="irab-col">المِفتاحِ: مجرور بالكاف، كسرة</td></tr>
+              <tr><td class="harf-col">وَ</td><td>القسَم</td><td><span class="harf-highlight">وَ</span>اللهِ</td><td class="irab-col">اللهِ: مجرور بواو القسم، يدخل على أي اسم</td></tr>
+              <tr><td class="harf-col">تَ</td><td>القسَم</td><td><span class="harf-highlight">تَ</span>اللهِ</td><td class="irab-col">خاص بلفظ «الله» فقط</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑦</div><div><div class="sub-label">التدريباتُ والتقويمُ</div></div></div>
+        <div class="tamrin-section">
+          <div class="tamrin-title">تدريبات الوحدة الرابعة</div>
+          <div class="tamrin-type">أولاً: اختيارٌ من متعدِّدٍ</div>
+          <div class="soal"><span class="soal-num">١.</span> «يَصومُ حتَّى الغروبِ» — «حتَّى» هنا:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> حرف نصب</li><li><span class="opt-label">ب</span> حرف عطف</li><li><span class="opt-label">ج</span> حرف جر</li><li><span class="opt-label">د</span> حرف نفي</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٢.</span> الكافُ الجارَّةُ تفيدُ:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> المجاوزة</li><li><span class="opt-label">ب</span> التشبيه</li><li><span class="opt-label">ج</span> الملك</li><li><span class="opt-label">د</span> الظرفية</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٣.</span> تاءُ القسَمِ تدخلُ على:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> أي اسم</li><li><span class="opt-label">ب</span> لفظ «الله» فقط</li><li><span class="opt-label">ج</span> الأفعال</li><li><span class="opt-label">د</span> الحروف</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٤.</span> «الوضوءُ كالمِفتاحِ» — الاسمُ المجرورُ بالكافِ هو:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> الوضوء</li><li><span class="opt-label">ب</span> المِفتاحِ</li><li><span class="opt-label">ج</span> كلاهما</li><li><span class="opt-label">د</span> لا شيء</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٥.</span> أيٌّ من الجملِ التاليةِ صحيحٌ نحوياً؟
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> تَ الرحمنِ لَأَصدُقَنَّ</li><li><span class="opt-label">ب</span> وَ اللهِ لَأَصدُقَنَّ</li><li><span class="opt-label">ج</span> تَ الكعبةِ لَأَصدُقَنَّ</li><li><span class="opt-label">د</span> تَ النبيِّ لَأَصدُقَنَّ</li></ul>
+          </div>
+          <div class="tamrin-type">ثانياً: أكمِلِ الجُمَل</div>
+          <div class="soal"><span class="soal-num">١.</span> ««حتَّى» حرفُ جرٍّ يفيدُ ________ الغايةِ، ومثالُهُ: ________»</div>
+          <div class="soal"><span class="soal-num">٢.</span> «الكافُ الجارَّةُ تُفيدُ ________ ، وتُجَرُّ الاسمَ بعدَها بـ________»</div>
+          <div class="soal"><span class="soal-num">٣.</span> «حروفُ القسَمِ ثلاثةٌ هي: ________ و________ و________ ، وأخصُّها بلفظِ اللهِ هو ________»</div>
+          <div class="tamrin-type">ثالثاً: أعرِبْ ما يلي</div>
+          <div class="soal"><span class="soal-num">١.</span> «يَصومُ المسلمُ <u>حتَّى الغروبِ</u>» — أعرِبِ الجارَّ والمجرورَ.</div>
+          <div class="soal"><span class="soal-num">٢.</span> «<u>وَاللهِ</u> إنَّ الصلاةَ فريضةٌ» — أعرِبِ «واوَ القسمِ» ولفظَ الجلالةِ.</div>
+          <div class="tamrin-type">رابعاً: تطبيقٌ من كاشفةِ السجا</div>
+          <div class="soal">استخرِجْ من الجملةِ التاليةِ جميعَ حروفِ الجرِّ وبيِّنْ أنواعَها:<br>«وَاللهِ إنَّ الوضوءَ كالسِّلاحِ لِلمصلِّي، يَتوضَّأُ حتَّى انتهاءِ غَسلِ رِجلَيهِ بإتقانٍ وخشوعٍ»</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== WIHDA 5: رُبَّ وبقية حروف الجر ======== -->
+  <div class="wihda">
+    <div class="wihda-header bab1-w5">
+      <div class="wihda-num">الوحدة الخامسة — ٥</div>
+      <div class="wihda-title">رُبَّ وما بَقِيَ مِن حُروفِ الجرِّ</div>
+    </div>
+    <div class="wihda-body">
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">①</div><div><div class="sub-label">أهداف التعلُّم</div></div></div>
+        <div class="goals-box">
+          <ol>
+            <li>أن يَعرِفَ الطالبُ معنى «رُبَّ» وخصائصَها النحويةَ.</li>
+            <li>أن يُميِّزَ بينَ «مُنذُ» و«مُذْ» واستخداماتِهِما.</li>
+            <li>أن يَعرِفَ «خلا» و«عدا» و«حاشا» وكونَها أفعالاً أو حروفاً.</li>
+            <li>أن يُطبِّقَ هذه الحروفَ في السياقِ الفقهيِّ لكاشفةِ السجا.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">④</div><div><div class="sub-label">أنواعُها ومعانيها</div></div></div>
+        <div class="harf-grid">
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">رُبَّ</div><div><div class="harf-name">رُبَّ</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan <strong>sedikit</strong> (التقليل) atau terkadang <strong>banyak</strong> (التكثير) bergantung konteks. Masuk pada isim nakirah.</div>
+              <div class="harf-example"><span class="harf-highlight">رُبَّ</span> عالِمٍ لا يَعملُ بعلمِهِ<br><span style="font-size:13px;color:var(--text-muted);">Betapa banyak orang alim yang tidak mengamalkan ilmunya</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">مُنذُ/مُذ</div><div><div class="harf-name">مُنذُ / مُذ</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan <strong>awal waktu</strong> (ابتداء الزمان) atau <strong>rentang waktu</strong>. Khusus untuk keterangan waktu.</div>
+              <div class="harf-example">صُمتُ <span class="harf-highlight">مُنذُ</span> الفجرِ<br><span style="font-size:13px;color:var(--text-muted);">Aku berpuasa sejak fajar</span></div>
+            </div>
+          </div>
+          <div class="harf-card">
+            <div class="harf-card-header"><div class="harf-symbol">خلا/عدا</div><div><div class="harf-name">خَلا / عَدا / حاشا</div></div></div>
+            <div class="harf-card-body">
+              <div class="harf-makna">Menyatakan <strong>pengecualian</strong> (الاستثناء). Bisa berperan sebagai huruf jar atau fi'il. Padanan: <strong>"kecuali"</strong>.</div>
+              <div class="harf-example">أُكمِلَ الوضوءُ <span class="harf-highlight">خلا</span> موضعِ الجبيرةِ<br><span style="font-size:13px;color:var(--text-muted);">Wudu disempurnakan kecuali tempat pembalut luka</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="murajaah-box">
+          <div class="murajaah-title">مراجعة: حروف الجر السبعة عشر</div>
+          <ul>
+            <li>المجموعة الأولى (الأكثر شيوعاً): مِن، إلى، عَن، عَلى، في، الباء، اللام</li>
+            <li>المجموعة الثانية: الكاف، حتَّى، واو القسَم، تاء القسَم، رُبَّ</li>
+            <li>المجموعة الثالثة (الأقل شيوعاً): مُنذُ، مُذ، خلا، عدا، حاشا</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑤</div><div><div class="sub-label">الأمثلةُ من كتابِ كاشفةِ السجا</div></div></div>
+        <ul class="amtsilah-list">
+          <li><div class="num">١</div><div class="text"><span class="harf-highlight">رُبَّ</span> مصلٍّ لا تُقبَلُ صلاتُهُ لإخلالِهِ بالطُّمأنينةِ.<span class="trans">Betapa banyak orang shalat yang shalatnya tidak diterima karena melalaikan tuma'ninah.</span></div></li>
+          <li><div class="num">٢</div><div class="text">لم أُفطِرْ <span class="harf-highlight">مُنذُ</span> طلوعِ الفجرِ حتَّى غروبِ الشمسِ.<span class="trans">Aku tidak berbuka sejak terbit fajar hingga terbenam matahari.</span></div></li>
+          <li><div class="num">٣</div><div class="text">أُكمِلَ وضوءُهُ <span class="harf-highlight">خلا</span> الموضعِ الذي عليهِ الجبيرةُ، فإنَّهُ يَمسحُ عليها.<span class="trans">Wudunya disempurnakan kecuali tempat yang ada pembalut lukanya, maka ia mengusapnya.</span></div></li>
+          <li><div class="num">٤</div><div class="text"><span class="harf-highlight">رُبَّ</span> سؤالٍ يَنفعُ العالِمَ قبلَ المتعلِّمِ، فَسَلوا أهلَ الذِّكرِ إن كنتُم لا تعلمونَ.<span class="trans">Betapa banyak pertanyaan yang bermanfaat bagi orang alim sebelum penanya, maka tanyakanlah kepada ahli ilmu jika kalian tidak mengetahui.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title"><div class="sub-num">⑦</div><div><div class="sub-label">التدريباتُ والتقويمُ</div></div></div>
+        <div class="tamrin-section">
+          <div class="tamrin-title">تدريبات الوحدة الخامسة</div>
+          <div class="tamrin-type">أولاً: اختيارٌ من متعدِّدٍ</div>
+          <div class="soal"><span class="soal-num">١.</span> «رُبَّ» تدخلُ على:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> الاسم المعرفة</li><li><span class="opt-label">ب</span> الاسم النكرة</li><li><span class="opt-label">ج</span> الفعل</li><li><span class="opt-label">د</span> الجملة الفعلية</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٢.</span> «مُنذُ» تختصُّ بالدلالةِ على:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> المكان</li><li><span class="opt-label">ب</span> الزمان</li><li><span class="opt-label">ج</span> السبب</li><li><span class="opt-label">د</span> الملك</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٣.</span> «خلا» في الاستثناءِ تكونُ:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> حرف جر فقط</li><li><span class="opt-label">ب</span> فعل فقط</li><li><span class="opt-label">ج</span> حرف جر أو فعل</li><li><span class="opt-label">د</span> اسم فقط</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٤.</span> معنى «رُبَّ» الأصليُّ:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> التكثير فقط</li><li><span class="opt-label">ب</span> التقليل أو التكثير</li><li><span class="opt-label">ج</span> النفي</li><li><span class="opt-label">د</span> التأكيد</li></ul>
+          </div>
+          <div class="soal"><span class="soal-num">٥.</span> «صُمتُ مُنذُ الفجرِ» — الاسمُ المجرورُ بـ«مُنذُ»:
+            <ul class="soal-choices"><li><span class="opt-label">أ</span> صُمتُ</li><li><span class="opt-label">ب</span> مُنذُ</li><li><span class="opt-label">ج</span> الفجرِ</li><li><span class="opt-label">د</span> لا شيء</li></ul>
+          </div>
+          <div class="tamrin-type">ثانياً: أكمِلِ الجُمَل</div>
+          <div class="soal"><span class="soal-num">١.</span> «رُبَّ تدخلُ على الاسمِ ________ وتجرُّهُ بالـ________»</div>
+          <div class="soal"><span class="soal-num">٢.</span> «مُنذُ ومُذ يُفيدانِ ________ وهما مختصَّانِ بـ________»</div>
+          <div class="soal"><span class="soal-num">٣.</span> «حروفُ الجرِّ الثلاثةُ التي تُفيدُ الاستثناءَ هي: ________ و________ و________»</div>
+          <div class="tamrin-type">ثالثاً: أعرِبْ ما يلي</div>
+          <div class="soal"><span class="soal-num">١.</span> «<u>رُبَّ مصلٍّ</u> لا خشوعَ في صلاتِهِ» — أعرِبِ «رُبَّ» وما بعدَها.</div>
+          <div class="soal"><span class="soal-num">٢.</span> «لم أُفطِرْ <u>مُنذُ الفجرِ</u>» — أعرِبِ الجارَّ والمجرورَ.</div>
+          <div class="tamrin-type">رابعاً: تطبيقٌ من كاشفةِ السجا</div>
+          <div class="soal">اقرأِ الفقرةَ التاليةَ واستخرِجْ جميعَ حروفِ الجرِّ مع بيانِ معنى كلٍّ منها:<br>«رُبَّ مُصلٍّ لا تُقبَلُ صلاتُهُ لعدمِ خشوعِهِ، ورُبَّ صائمٍ ليسَ لهُ مِن صيامِهِ إلاَّ الجوعُ. فليَحرِصِ المؤمنُ على إتقانِ عبادتِهِ مُنذُ البدايةِ حتَّى النهايةِ»</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footnotes">
+      <div class="footnotes-title">الهوامش</div>
+      <div class="fn-item"><span class="fn-num">١.</span> «رُبَّ» من الحروفِ التي خصَّها النحاةُ بأحكامٍ دقيقةٍ: تدخلُ على النكرةِ الموصوفةِ غالباً، وقد تُحذَفُ وتبقى الواوُ نائبةً عنها (واو رُبَّ).</div>
+      <div class="fn-item"><span class="fn-num">٢.</span> «خلا» و«عدا» و«حاشا» قد تكونُ أفعالاً ماضيةً وتنصبُ ما بعدَها، أو حروفَ جرٍّ وتجرُّ ما بعدَها. والأوجهُ الإعرابيةُ لهذه الكلماتِ مقرَّرةٌ في باب الاستثناءِ.</div>
+      <div class="fn-item"><span class="fn-num">٣.</span> جميعُ حروفِ الجرِّ السبعةَ عشرَ: مِن، إلى، حتى، خلا، عدا، حاشا، في، عن، على، مُذ، مُنذُ، رُبَّ، اللام، كي، الواو، التاء، الكاف، الباء. (وبعضُ النحاةِ يَزيدُ «كي» و«لعلَّ» ويختلفونَ في «متى» و«لولا»).</div>
+    </div>
+  </div>
+
+  <!-- =============== MURAJAAH AL-BAB =============== -->
+  <div style="background: linear-gradient(135deg, var(--green-dark) 0%, #0a2318 100%); border-radius: 4px; padding: 40px; margin-bottom: 60px; color: #fff;">
+    <div style="text-align:center; margin-bottom:24px;">
+      <div style="color:var(--gold); font-size:13px; letter-spacing:2px; margin-bottom:8px;">مراجعة الباب الأول</div>
+      <div style="font-family:'Amiri',serif; font-size:26px; font-weight:700;">خُلاصةُ حُروفِ الجرِّ</div>
+    </div>
+    <div class="jadwal-wrapper">
+      <table class="jadwal" style="background:rgba(255,255,255,0.1); color:#fff;">
+        <thead><tr><th style="color:#fff; background:rgba(0,0,0,0.3);">الوحدة</th><th style="color:#fff; background:rgba(0,0,0,0.3);">الحرف / الحروف</th><th style="color:#fff; background:rgba(0,0,0,0.3);">المعنى الرئيسي</th><th style="color:#fff; background:rgba(0,0,0,0.3);">نموذج من كاشفة السجا</th></tr></thead>
+        <tbody>
+          <tr style="color:#fff;"><td>١</td><td class="harf-col" style="color:var(--gold);">الباء</td><td>الإلصاق، الاستعانة، السببية، الظرفية</td><td>غَسَلَ يَدَيهِ بِالماءِ</td></tr>
+          <tr style="color:#fff;"><td>٢</td><td class="harf-col" style="color:var(--gold);">مِن / إلى / على / في / عن</td><td>ابتداء الغاية، انتهاؤها، الاستعلاء، الظرفية، المجاوزة</td><td>الصلاةُ فريضةٌ على كلِّ مسلمٍ</td></tr>
+          <tr style="color:#fff;"><td>٣</td><td class="harf-col" style="color:var(--gold);">اللام</td><td>الملك، الاستحقاق، التعليل، الاختصاص</td><td>الزكاةُ للفقراءِ</td></tr>
+          <tr style="color:#fff;"><td>٤</td><td class="harf-col" style="color:var(--gold);">حتى / الكاف / التاء / الواو</td><td>انتهاء الغاية، التشبيه، القسَم</td><td>يصومُ حتى الغروبِ</td></tr>
+          <tr style="color:#fff;"><td>٥</td><td class="harf-col" style="color:var(--gold);">رُبَّ / مُنذُ / خلا / عدا / حاشا</td><td>التقليل، ابتداء الزمان، الاستثناء</td><td>صُمتُ مُنذُ الفجرِ</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:24px; padding:20px; background:rgba(184,134,11,0.15); border:1px solid rgba(184,134,11,0.3); border-radius:4px;">
+      <div style="color:var(--gold); font-family:'Amiri',serif; font-size:18px; margin-bottom:12px;">القاعدةُ الذهبيةُ</div>
+      <div style="color:#ffffff; font-family:'Amiri',serif; font-size:16px; line-height:2; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">
+        كلُّ اسمٍ جاءَ بعدَ حرفِ الجرِّ فهو مجرورٌ، وعلامةُ جرِّهِ الأصليةُ الكسرةُ الظاهرةُ في آخرِهِ. وقد تكونُ علامةُ الجرِّ نيابيةً: الياءُ في المثنَّى وجمعِ المذكَّرِ السالمِ والأسماءِ الخمسةِ، والفتحةُ في الاسمِ الممنوعِ من الصرفِ.
+      </div>
+    </div>
+  </div>
+
+  <!-- =============== MARAJI' =============== -->
+  <div class="page-section maraji-section">
+    <div class="section-title-ar">المراجعُ والمصادرُ</div>
+    <div class="title-underline"></div>
+    <ul class="ref-list">
+      <li>
+        <div class="ref-main">الشيخُ محمدٌ نواوي الجاوي البنتَني. كاشفةُ السَّجا في شرحِ سفينةِ النجا.</div>
+        <div class="ref-detail">Nawawi al-Bantani. Kasyifatus Saja Syarh Safinatin Najā. Beirut: Dār al-Kutub al-'Ilmiyyah / Singapura: Maktabah wa Matba'ah Sulaiman Mar'i.</div>
+      </li>
+      <li>
+        <div class="ref-main">ابنُ مالكٍ الأندلسيُّ. ألفيةُ ابنِ مالكٍ في النحوِ والصرفِ.</div>
+        <div class="ref-detail">Ibn Mālik al-Andalusī. Alfiyyah Ibn Mālik fī al-Naḥwi wa al-Ṣarf. Kairo: Dār al-Ma'ārif.</div>
+      </li>
+      <li>
+        <div class="ref-main">ابنُ هشامٍ الأنصاريُّ. مُغني اللبيبِ عن كتبِ الأعاريبِ.</div>
+        <div class="ref-detail">Ibn Hisyām al-Anṣārī. Mughnī al-Labīb 'an Kutub al-A'ārīb. Tahqiq: Sa'd al-Din al-Onsari. Kairo: Dār al-Fikr.</div>
+      </li>
+      <li>
+        <div class="ref-main">الشيخُ خالدٌ الأزهريُّ. شرحُ التصريحِ على التوضيحِ.</div>
+        <div class="ref-detail">Khalid al-Azhari. Syarḥ al-Taṣrīḥ 'alā al-Tawḍīḥ. 2 Jilid. Beirut: Dār al-Kutub al-'Ilmiyyah.</div>
+      </li>
+      <li>
+        <div class="ref-main">مصطفى الغلاييني. جامعُ الدروسِ العربيةِ.</div>
+        <div class="ref-detail">Mustafa al-Ghulāyyīnī. Jāmi' al-Durūs al-'Arabiyyah. 3 Jilid. Beirut: Mansyurat al-Maktabah al-'Asriyyah.</div>
+      </li>
+      <li>
+        <div class="ref-main">عباسٌ حسنٌ. النحوُ الوافي.</div>
+        <div class="ref-detail">'Abbās Ḥasan. al-Naḥw al-Wāfī. 4 Jilid. Kairo: Dār al-Ma'ārif.</div>
+      </li>
+      <li>
+        <div class="ref-main">Kementerian Agama RI. Pedoman Transliterasi Arab-Latin. Jakarta: 2003.</div>
+        <div class="ref-detail">Pedoman resmi transliterasi huruf Arab ke huruf Latin yang digunakan dalam penulisan ilmiah Indonesia.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- =============== FOOTER =============== -->
+<div class="page-footer">
+  <strong>تطوير كتاب تعليم النحو في باب الحروف والإعراب لتنمية فهم المقروء لكتاب كاشفة السجا</strong><br>
+  الباب الأول: حروف الجر — الوحدات الأولى حتى الخامسة<br>
+  <span style="font-size:11px; margin-top:6px; display:block; opacity:0.6;">قسم تعليم اللغة العربية | كلية الآداب | جامعة مالانج الحكومية | ١٤٤٧ هـ / ٢٠٢٦ م</span>
+</div>
+
+</body>
+</html>
